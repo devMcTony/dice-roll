@@ -1,17 +1,21 @@
 import random
 
 
-def sumulate_dice_roll():
+def simulate_dice_roll():
+    # Create dictionary to store indexes
+    # e.g {1: [], 2: [], 3: [], 4: [], 5: [], 6: []}
     indexes = {i: [] for i in range(1, 7)}
+
+    print(indexes)
 
     # Do randomness simulation
     for _ in range(1000):
-        # Gen rand number between 0.1 and 1
-        num = round(random.uniform(0.1, 1), 1)
+        # Generate random number between 0 and 1 (exclusive of 1)
+        num = random.random()
         category = min(int(num * 6) + 1, 6)
         indexes[category].append(num)
 
-    # Compute freq and perc
+    # Compute frequency and percentage
     total = sum(len(v) for v in indexes.values())
     data = [(i, len(v), f"{(len(v) / 1000) * 100:.1f}%") for i, v in indexes.items()]
 
@@ -24,4 +28,4 @@ def sumulate_dice_roll():
     print(f"{'Total':^10} | {total:^10} | {'100.0%':^12}")
 
 
-sumulate_dice_roll()
+simulate_dice_roll()
