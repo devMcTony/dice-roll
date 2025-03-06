@@ -12,13 +12,25 @@ function simulateDiceRoll(): void {
   ])
 
   for (let i = 0; i < FREQUENCY; i++) {
-    // Generates a number in the range inclusive [0, 1)
-    // Math.ramdow() * 6 scales the number generated to the range [0, 6)
-    // Math.floor(Math.random() * 6) generates a number e.g 0,1,2,3,4,5
-    // Add 1 to the generated number to get a number in the range 1,2,3,4,5,6
-    const num = Math.floor(Math.random() * 6) + 1
+    const num = Math.random() // Generates a number in range [0, 1)
 
-    faces.get(num)!.push(i)
+    // Determine category with equal intervals
+    let category: number
+    if (num < 1 / 6) {
+      category = 1
+    } else if (num < 2 / 6) {
+      category = 2
+    } else if (num < 3 / 6) {
+      category = 3
+    } else if (num < 4 / 6) {
+      category = 4
+    } else if (num < 5 / 6) {
+      category = 5
+    } else {
+      category = 6 // Covers [5/6, 1)
+    }
+
+    faces.get(category)!.push(num)
   }
 
   // Compute total Frequency using Map values
@@ -33,7 +45,6 @@ function simulateDiceRoll(): void {
     const perc = ((freq / FREQUENCY) * 100).toFixed(1) + '%'
     return { face: face.toString(), freq, perc }
   })
-
 
   // Output results as table
   console.log(` FACE      | FREQUENCY  | PERCENTAGE `)
