@@ -17,15 +17,15 @@ function simulateDiceRoll(): void {
 
     // Determine category by checking (1/6 = ~0.1667)
     let category: number
-    if (num < 1 / 6) {
+    if (num <= 1 / 6) {
       category = 1
-    } else if (num < 2 / 6) {
+    } else if (num <= 2 / 6) {
       category = 2
-    } else if (num < 3 / 6) {
+    } else if (num <= 3 / 6) {
       category = 3
-    } else if (num < 4 / 6) {
+    } else if (num <= 4 / 6) {
       category = 4
-    } else if (num < 5 / 6) {
+    } else if (num <= 5 / 6) {
       category = 5
     } else {
       category = 6
