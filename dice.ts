@@ -14,7 +14,7 @@ function simulateDiceRoll(): void {
   for (let i = 0; i < FREQUENCY; i++) {
     const num = Math.random() // Generates a number in range [0, 1)
 
-    // Determine category with equal intervals
+    // Determine category all with equal intervals
     let category: number
     if (num < 1 / 6) {
       category = 1
