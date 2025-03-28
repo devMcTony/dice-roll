@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Drawer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        canvas {
+            border: 1px solid #000;
+            margin-top: 20px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vehicle Drawer</h1>
+    <div>
+        <button id="carButton">Draw Car</button>
+        <button id="truckButton">Draw Truck</button>
+        <button id="suvButton">Draw SUV</button>
+    </div>
+    <canvas id="vehicleCanvas" width="800" height="500"></canvas>
+    
+    <script src="./js/vehicles.js"></script>
+</body>
+</html>
