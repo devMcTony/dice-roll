@@ -15627,7 +15627,7 @@ string: ${t}`);
             u) {
                 t.setTransform(1, 0, 0, 1, 0, 0);
                 for (let m = 0; m < d.length; m++)
-                    t.fillText('', 20, 150 + +(m * 20))
+                    t.fillText(d[m].toString(), 20, 150 + +(m * 20))
             }
         }
         DR(t) {
