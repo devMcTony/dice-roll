@@ -215,26 +215,32 @@ function runSimulation(
   logOutputFile()
 }
 
-try {
-  const inputData = fs.readFileSync('mm1.in', 'utf8')
-  const params = inputData.trim().split(/\s+/).map(Number)
+// Main function
+// Read input from mm1.in
+function main(): void {
+  try {
+    const inputData = fs.readFileSync('mm1.in', 'utf8')
+    const params = inputData.trim().split(/\s+/).map(Number)
 
-  if (params.length !== 3 || params.some(isNaN)) {
+    if (params.length !== 3 || params.some(isNaN)) {
+      console.error(
+        'Error: Input file must contain three numbers (mean interarrival time, mean service time, number of customers)',
+      )
+      process.exit(1)
+    }
+
+    const [meanInterarrivalTime, meanServiceTime, numCustomers] = params
+    runSimulation(meanInterarrivalTime, meanServiceTime, numCustomers)
+  } catch (err) {
+    console.error('Error reading input file:', err)
     console.error(
-      'Error: Input file must contain three numbers (mean interarrival time, mean service time, number of customers)',
+      'Please create a file named mm1.in with three space-separated values:',
     )
+    console.error('  1. Mean interarrival time (e.g., 1.0)')
+    console.error('  2. Mean service time (e.g., 0.5)')
+    console.error('  3. Number of customers (e.g., 1000)')
     process.exit(1)
   }
-
-  const [meanInterarrivalTime, meanServiceTime, numCustomers] = params
-  runSimulation(meanInterarrivalTime, meanServiceTime, numCustomers)
-} catch (err) {
-  console.error('Error reading input file:', err)
-  console.error(
-    'Please create a file named mm1.in with three space-separated values:',
-  )
-  console.error('  1. Mean interarrival time (e.g., 1.0)')
-  console.error('  2. Mean service time (e.g., 0.5)')
-  console.error('  3. Number of customers (e.g., 1000)')
-  process.exit(1)
 }
+
+main()
