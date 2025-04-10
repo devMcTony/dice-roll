@@ -6,7 +6,7 @@ Number of customers: 1000
 
 
 
-Average delay in queue: 0.459 minutes
-Average number in queue: 0.475
-Server utilization: 0.529
-Time simulation ended: 974.887 minutes
+Average delay in queue: 0.485 minutes
+Average number in queue: 0.480
+Server utilization: 0.505
+Time simulation ended: 1011.801 minutes

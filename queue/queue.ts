@@ -158,6 +158,10 @@ function expon(mean: number): number {
 
 function logOutputFile(): void {
   try {
+    const inputData = fs.readFileSync('mm1.in', 'utf8');
+    console.log('\n--- Input data provided ---');
+    console.log(inputData);
+    console.log('---------------------------');
     const outputData = fs.readFileSync('mm1.out', 'utf8');
     console.log('\n--- Contents of mm1.out ---');
     console.log(outputData);
