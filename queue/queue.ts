@@ -156,6 +156,17 @@ function expon(mean: number): number {
   return -mean * Math.log(Math.random());
 }
 
+function logOutputFile(): void {
+  try {
+    const outputData = fs.readFileSync('mm1.out', 'utf8');
+    console.log('\n--- Contents of mm1.out ---');
+    console.log(outputData);
+    console.log('---------------------------');
+  } catch (err) {
+    console.error('Error reading output file:', err);
+  }
+}
+
 function runSimulation(interarrivalMean: number, serviceMean: number, delaysRequired: number): void {
   // Set parameters
   meanInterarrival = interarrivalMean;
@@ -191,6 +202,7 @@ function runSimulation(interarrivalMean: number, serviceMean: number, delaysRequ
 
   fs.writeFileSync('mm1.out', outputContent);
   console.log('Simulation completed. Results written to mm1.out');
+  logOutputFile();
 }
 
 try {
